@@ -17,6 +17,7 @@ namespace BookStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,29 +32,29 @@ namespace BookStore
 
             app.UseEndpoints(endpoints =>
             {
-                
-                endpoints.MapGet("/", async context =>
-                {
-                    if (env.IsDevelopment())
-                    {
-                        await context.Response.WriteAsync("This is Dev");
-                    }
-                    else
-                    if(env.IsProduction())
-                    {
-                        await context.Response.WriteAsync("This is Prodd");
-                    }
-                    else
+                endpoints.MapDefaultControllerRoute();
+                //endpoints.MapGet("/55", async context =>
+                //{
+                //    if (env.IsDevelopment())
+                //    {
+                //        await context.Response.WriteAsync("This is Dev");
+                //    }
+                //    else
+                //    if(env.IsProduction())
+                //    {
+                //        await context.Response.WriteAsync("This is Prodd");
+                //    }
+                //    else
 
-                    if (env.IsStaging())
-                    {
-                        await context.Response.WriteAsync("This is TEST");
-                    }
-                    else
-                    { 
-                        await context.Response.WriteAsync("Thisis UAT");
-                    }
-                });
+                //    if (env.IsStaging())
+                //    {
+                //        await context.Response.WriteAsync("This is TEST");
+                //    }
+                //    else
+                //    { 
+                //        await context.Response.WriteAsync("Thisis UAT");
+                //    }
+                //});
             });
         }
     }
