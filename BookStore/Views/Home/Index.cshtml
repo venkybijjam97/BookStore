@@ -1,42 +1,68 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-}
+@model IEnumerable<BookStore.Models.BookModel>
 
-<h1>Index</h1>
+<div class="container">
+    <div class="jumbotron">
+    <h2 style="text-align:center">Book Store</h2>
+    <p>this is the Book Store application. which is used by users to buy the books </p>
+    <p>this is web application</p>
+    </div>
+</div>
+<div
+  id="carouselMultiItemExample"
+  class="carousel slide carousel-dark text-center"
+  data-mdb-ride="carousel"
+>
+  <!-- Controls -->
+ 
+  <!-- Inner -->
+  <div class="carousel-inner py-4">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <div class="container">
+           <div class="row">
+          @foreach(var bookitem in Model)
+          {
+       
+          <div class="col-lg-4">
+            <div class="card">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
+                class="card-img-top"
+                alt="Waterfall"
+              />
+              <div class="card-body">
+                <h5 class="card-title">@bookitem.BookName</h5>
+                <p class="card-text">
+                  @bookitem.Description
+                </p>
+                <a href="/Home/Bookdetails/@bookitem.id" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
 
+         
+       
+        }
+         </div>
+      </div>
+    </div>
 
-<h2>@DateTime.Now.ToString("dd/MM/yy")</h2>
-
-@{
-    int a = 2;
-    int b = 3;
-    int c = a + b;
-}
-<h2>@c</h2>
-<h2>twiter - @@account</h2>
-
-@if(c>6)
-{
-    <h2>c value : @c</h2>
-}
-else
-{
-    <h2>c value graterthen </h2>
-}
-
-<h2> ternary  - @(c==5?b=10:a=8)</h2>
-    <h2>b value @b and a value @a</h2>
-
-   @switch(a)
+  </div>
+  <!-- Inner -->
+</div>
+<!-- Carousel wrapper -->
+@*@section Alert{
+<script>
+    $(document).ready(function()
+    
+    
     {
-    case 1:
-        <h2>case 1</h2>
-        break;
-    case 2:
-        <h2>case 2</h2>
-        break;
-     default:
-        <h2>default case</h2>
-        break;
+        alert("page load");
+    });
+</script>
+}*@
+
+@section home{
+    <h2>This is from layout</h2>
 }

@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>this is AboutUs Page</h2>
+
+<h1 style="color:red">@ViewBag.name</h1>
+
+<h2 style="color:green">@ViewData["ActionName"]</h2>
+@{
+    var obj = ViewData["ActionDetails"] as BookModel;
+}
+<h2>@obj.id</h2>
+<h2>@obj.BookName</h2>
+
